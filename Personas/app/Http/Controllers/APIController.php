@@ -21,7 +21,7 @@ class APIController extends Controller
             [
                 'headers' => [
                     'Content-Type' => 'application/json',
-                    'Authorization' => 'Basic dUFwaVRva2FpbnRlcm5hY2lvbmFsOmpeRmt0MyZGQWhEVXVyWGI='
+                    'Authorization' => 'Basic ZGVtbzpwQDU1dzByZA=='
                     ],
                 'json' => [
                     "nombre" => $Nombre,
@@ -55,7 +55,7 @@ class APIController extends Controller
             [
                 'headers' => [
                     'Content-Type' => 'application/json',
-                    'Authorization' => 'Basic dUFwaVRva2FpbnRlcm5hY2lvbmFsOmpeRmt0MyZGQWhEVXVyWGI='
+                    'Authorization' => 'Basic ZGVtbzpwQDU1dzByZA=='
                     ],
                 'json' => [
                     "idPersonaFisica" => $IdPersonaFisica,
@@ -90,7 +90,7 @@ class APIController extends Controller
             [
                 'headers' => [
                     'Content-Type' => 'application/json',
-                    'Authorization' => 'Basic dUFwaVRva2FpbnRlcm5hY2lvbmFsOmpeRmt0MyZGQWhEVXVyWGI='
+                    'Authorization' => 'Basic ZGVtbzpwQDU1dzByZA=='
                     ],
                 'json' => []
             ]);
