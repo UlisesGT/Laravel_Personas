@@ -11,7 +11,7 @@ use GuzzleHttp\Exception\RequestException;
 
 class APIController extends Controller
 {   
-    public function AgregarUsuario($Nombre, $ApellidoPaterno, $ApellidoMaterno, $RFC, $FechaNacimiento, $Fecha, $IdUsuario)
+    public function AgregarUsuario($Nombre, $ApellidoPaterno, $ApellidoMaterno, $RFC, $FechaNacimiento, $IdUsuario)
     {
         try
         {
@@ -24,12 +24,12 @@ class APIController extends Controller
                     'Authorization' => 'Basic dUFwaVRva2FpbnRlcm5hY2lvbmFsOmpeRmt0MyZGQWhEVXVyWGI='
                     ],
                 'json' => [
-                    "nombre" => "string",
-                    "apellidoPaterno" => "string",
-                    "apellidoMaterno" => "string",
-                    "rfc" => "string",
-                    "fechaNacimiento" => "2022-03-22T17:44:25.107Z",
-                    "usuarioAgrega" => 0
+                    "nombre" => $Nombre,
+                    "apellidoPaterno" => $ApellidoPaterno,
+                    "apellidoMaterno" => $ApellidoMaterno,
+                    "rfc" => $RFC,
+                    "fechaNacimiento" => $FechaNacimiento,
+                    "usuarioAgrega" => $IdUsuario
                  ]
             ]);
                         
@@ -45,7 +45,7 @@ class APIController extends Controller
         }
     } 
     
-    public function ActualizarUsuario($Nombre, $ApellidoPaterno, $ApellidoMaterno, $RFC, $FechaNacimiento, $Fecha, $IdUsuario)
+    public function ActualizarUsuario($IdPersonaFisica, $Nombre, $ApellidoPaterno, $ApellidoMaterno, $RFC, $FechaNacimiento, $IdUsuario)
     {
         try
         {
@@ -58,13 +58,13 @@ class APIController extends Controller
                     'Authorization' => 'Basic dUFwaVRva2FpbnRlcm5hY2lvbmFsOmpeRmt0MyZGQWhEVXVyWGI='
                     ],
                 'json' => [
-                    "idPersonaFisica" => 0,
-                    "nombre" => "string",
-                    "apellidoPaterno" => "string",
-                    "apellidoMaterno" => "string",
-                    "rfc" => "string",
-                    "fechaNacimiento" => "2022-03-22T17:44:25.107Z",
-                    "usuarioAgrega" => 0
+                    "idPersonaFisica" => $IdPersonaFisica,
+                    "nombre" => $Nombre,
+                    "apellidoPaterno" => $ApellidoPaterno,
+                    "apellidoMaterno" => $ApellidoMaterno,
+                    "rfc" => $RFC,
+                    "fechaNacimiento" => $FechaNacimiento,
+                    "usuarioAgrega" => $IdUsuario
                  ]
             ]);
                         

@@ -13,6 +13,7 @@
 
         <div class="col-lg-12 col-md-12">
             <div class="card">
+   
                 <div class="card-header"><h4 class="card-title">Reportes</h4></div>
                 <form class="form-horizontal" action="{{ url('/ObtenerReporte') }}" method="POST" files="true" enctype="multipart/form-data">
                 @csrf
@@ -20,7 +21,7 @@
                 <div style="overflow-x:auto; height:600px" class="p-3">
                 <button onclick="exportExcel('Tablain', 'Reporte')">Exportar a excel</button>
                     <table class="table table-striped table-bordered bootstrap-3 tablescroll" baseurl="{{url('/')}}" id="Tablain">
-                        <input type="hidden" name="_token2" value="{{ csrf_token() }}" id="val">
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}" id="val">
                         <thead>
                             <tr align="center">
                                 <th>Id</th><th>FechaRegistro</th><th>FechaActualizacion</th><th>Nombre</th><th>ApellidoPaterno</th>
@@ -45,13 +46,33 @@
 
     function Get()
     {
-        var BaseURL = $("#FormPersona").attr("baseurl");
+        var BaseURL = $("#Tablain").attr("baseurl");
 
         $.ajax({
             beforeSend: function (xhr) {
                 xhr.setRequestHeader('X-CSRF-Token', $('[name="_token"]').val());
             },
             url : BaseURL + "/GetToken",
+            type: "post",
+            dataType: "json",
+            error: function(element){
+                console.log(element);
+            },
+            success: function(r){
+                console.log(r);
+            }
+        });
+    }
+
+    function GetReporte()
+    {
+        var BaseURL = $("#Tablain").attr("baseurl");
+
+        $.ajax({
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader('X-CSRF-Token', $('[name="_token"]').val());
+            },
+            url : BaseURL + "/GetRegistros",
             type: "post",
             dataType: "json",
             error: function(element){

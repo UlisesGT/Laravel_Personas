@@ -15,7 +15,7 @@ class PersonasController extends Controller
     public function Personas()
     {
         $API = new APIController();
-        $data["Personas"] = $API->ObtenerUsuario();
+        $data["Personas"] = null;//$API->ObtenerUsuario();
     
         return view('pages.Formulario/FormPersonas')->with($data);
     }
@@ -34,15 +34,14 @@ class PersonasController extends Controller
 		$RFC = strip_tags($_POST["RFC"]);
 		$FechaNacimiento = strip_tags($_POST["FechaNacimiento"]);
         
-		$Fecha = date('Y-m-d H:i:s');
 		$IdUsuario = Session::get('idusuario');
 
         $API = new APIController();
 
         if($IdPersonaFisica == null)
-            $Usuario = $API->AgregarUsuario($Nombre, $ApellidoPaterno, $ApellidoMaterno, $RFC, $FechaNacimiento, $Fecha, $IdUsuario);
+            $Usuario = $API->AgregarUsuario($Nombre, $ApellidoPaterno, $ApellidoMaterno, $RFC, $FechaNacimiento, $IdUsuario);
         else
-            $Usuario = $API->ActualizarUsuario($IdPersonaFisica, $Nombre, $ApellidoPaterno, $ApellidoMaterno, $RFC, $FechaNacimiento, $Fecha, $IdUsuario);
+            $Usuario = $API->ActualizarUsuario($IdPersonaFisica, $Nombre, $ApellidoPaterno, $ApellidoMaterno, $RFC, $FechaNacimiento, $IdUsuario);
 		
 		return redirect('/Personas');
 	}
