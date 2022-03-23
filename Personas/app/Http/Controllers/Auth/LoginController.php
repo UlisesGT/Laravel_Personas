@@ -63,11 +63,11 @@ class LoginController extends Controller
 
         //$user = $modelthis->GetUsuario($correo);
 			
-        if($correo != null)
+        if($correo == 'admin@gmail.com')
         {
-           if($password == '123456')
+           if($password == 'PassAdmin2022')
            {
-                $this->StartSession('Ulises', $correo, 1);//$user->nombre, $user->idusuario, $user->idnivel);
+                $this->StartSession('Administrador', $correo, 1);//$user->nombre, $user->idusuario, $user->idnivel);
                         
                 if(1 == 1)
                 {
